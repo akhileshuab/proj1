@@ -1,0 +1,31 @@
+<div class=" bg-zinc-100 p-10">
+@if (products) {
+  <div  class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    @for (product of products; track $index) {
+    <div  class="relative block rounded-tr-3xl border border-gray-200 bg-white">
+      <span class="absolute -right-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-600 px-6 py-4 font-medium uppercase tracking-widest text-white">
+        Save {{ getRandomDiscount() }}%
+      </span>
+
+      <img [src]="product.uploadPhoto" alt="product.name" class="h-80 w-full rounded-tr-3xl object-contain p-2" />
+
+      <div class="p-4 text-center">
+        <strong class="text-xl font-medium text-gray-900">{{product.name}}</strong>
+        <div class="price flex justify-between px-4 ">
+
+          <s class="text-xl font-medium text-gray-900">${{product.mrp}}</s>
+          <strong class="text-xl font-medium text-gray-900">${{product.dp}}</strong>
+        </div>
+        <!-- <p class="mt-2 text-pretty text-gray-700"></p> -->
+        <span class="mt-4 block rounded-md border border-red-900 bg-red-600 px-5 py-3 text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-red-900">
+          Learn More
+        </span>
+      </div>
+    </div>
+  }
+  </div>
+}
+</div>
+
+
+
